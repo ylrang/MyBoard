@@ -23,8 +23,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('cloud.urls')),
 ]
-<<<<<<< HEAD
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-=======
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
->>>>>>> 03f1c7b8136cbc7a9a3a3c078896f4af2ac3755f

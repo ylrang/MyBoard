@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
-<<<<<<< HEAD
 import my_settings
 import environ
 from pathlib import Path
@@ -24,32 +23,15 @@ env = environ.Env(DEBUG=(bool, True))
 environ.Env.read_env(
     env_file=os.path.join(BASE_DIR, '.env')
 )
-=======
-from pathlib import Path
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-
->>>>>>> 03f1c7b8136cbc7a9a3a3c078896f4af2ac3755f
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-<<<<<<< HEAD
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 ALLOWED_HOSTS = ['*']
-=======
-SECRET_KEY = 'django-insecure-c&ucjwkx0*&^%*jr3!skbq06x@2$nn9spw90k%#37^kg+gz!7y'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
->>>>>>> 03f1c7b8136cbc7a9a3a3c078896f4af2ac3755f
 
 
 # Application definition
@@ -62,20 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cloud',
-<<<<<<< HEAD
     'corsheaders'
 ]
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-=======
-]
-
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
->>>>>>> 03f1c7b8136cbc7a9a3a3c078896f4af2ac3755f
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -84,12 +58,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-<<<<<<< HEAD
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
-=======
->>>>>>> 03f1c7b8136cbc7a9a3a3c078896f4af2ac3755f
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
@@ -114,16 +85,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-<<<<<<< HEAD
 DATABASES = my_settings.DATABASES
-=======
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
->>>>>>> 03f1c7b8136cbc7a9a3a3c078896f4af2ac3755f
 
 
 # Password validation
@@ -150,18 +112,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-<<<<<<< HEAD
-=======
-LANGUAGES = [
-        ('ko', 'Korean'),   
-        ('en-us', 'English'),    
-        ('es', 'Spanish'),
-        ('fr', 'French'),
-]
-
-LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')] 
-
->>>>>>> 03f1c7b8136cbc7a9a3a3c078896f4af2ac3755f
 TIME_ZONE = 'UTC'
 
 USE_I18N = True

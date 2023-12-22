@@ -1,8 +1,5 @@
 {% extends 'base.html' %}
-<<<<<<< HEAD
 {% load static %}
-=======
->>>>>>> 03f1c7b8136cbc7a9a3a3c078896f4af2ac3755f
 {% block content %}
 
     <!-- bradcam_area  -->
@@ -11,11 +8,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="bradcam_text">
-<<<<<<< HEAD
                         <h3>자료 게시판</h3>
-=======
-                        <h3>Software Engineer</h3>
->>>>>>> 03f1c7b8136cbc7a9a3a3c078896f4af2ac3755f
                     </div>
                 </div>
             </div>
@@ -31,11 +24,7 @@
                         <div class="single_jobs white-bg d-flex justify-content-between">
                             <div class="jobs_left d-flex align-items-center">
                                 <div class="thumb">
-<<<<<<< HEAD
                                     <img src="{% static 'img/svg_icon/6.svg' %}" alt="">
-=======
-                                    <img src="img/svg_icon/1.svg" alt="">
->>>>>>> 03f1c7b8136cbc7a9a3a3c078896f4af2ac3755f
                                 </div>
                                 <div class="jobs_content">
                                     <a href="#"><h4>{{ post.title }}</h4></a>
@@ -54,13 +43,8 @@
                             </div>
                             <div class="jobs_right d-flex justify-content-end">
                                 <div class="apply_now">
-<<<<<<< HEAD
                                     <a href="{% url 'update_post' post.id %}" class="boxed-btn3">수정</a>
                                     <a href="{% url 'delete_post' post.id %}" class="boxed-btn3">삭제</a>
-=======
-                                    <a href="{% url 'update_post' post.id %}" class="boxed-btn3">Modify</a>
-                                    <a href="{% url 'delete_post' post.id %}" class="boxed-btn3">Delete</a>
->>>>>>> 03f1c7b8136cbc7a9a3a3c078896f4af2ac3755f
                                 </div>
                             </div>
                         </div>
@@ -71,25 +55,12 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="job_sumary">
-<<<<<<< HEAD
                         <div class="job_content">
                             <ul>
                                 <li>분류: <span>{{ post.get_category_display }}</span></li>
                                 <li>작성자: <span>{{ post.author }}</span></li>
                                 <li>기관: <span>{{ post.get_institute_display }}</span></li>
                                 <li>작성일: <span>{{ post.created }}</span></li>
-=======
-                        <div class="summery_header">
-                            <h3>Job Summery</h3>
-                        </div>
-                        <div class="job_content">
-                            <ul>
-                                <li>Published on: <span>12 Nov, 2019</span></li>
-                                <li>Vacancy: <span>2 Position</span></li>
-                                <li>Salary: <span>50k - 120k/y</span></li>
-                                <li>Location: <span>California, USA</span></li>
-                                <li>Job Nature: <span> Full-time</span></li>
->>>>>>> 03f1c7b8136cbc7a9a3a3c078896f4af2ac3755f
                             </ul>
                         </div>
                     </div>

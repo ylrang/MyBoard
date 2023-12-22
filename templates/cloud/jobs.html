@@ -1,8 +1,5 @@
 {% extends 'base.html' %}
-<<<<<<< HEAD
 {% load static %}
-=======
->>>>>>> 03f1c7b8136cbc7a9a3a3c078896f4af2ac3755f
 {% block content %}
 
     <!-- bradcam_area  -->
@@ -139,11 +136,7 @@
                             </p>
                         </div-->
                         <div class="reset_btn">
-<<<<<<< HEAD
                             <button class="boxed-btn3 w-100" type="submit">Reset</button>
-=======
-                            <button  class="boxed-btn3 w-100" type="submit">Reset</button>
->>>>>>> 03f1c7b8136cbc7a9a3a3c078896f4af2ac3755f
                         </div>
                     </div>
                 </div>
@@ -155,27 +148,16 @@
                                     <div class="search_cat d-flex justify-content-start">
                                         <select name="sort_type" id="sort_type">
                                             <!--option data-display="Most Recent">Most Recent</option-->
-<<<<<<< HEAD
                                             <option value="1">최신순</option>
                                             <option value="2">과거순</option>
                                             <!--option value="3">Wordpress </option>
                                             <option value="4">Designer</option-->
-=======
-                                            <option value="1">Most Recent</option>
-                                            <option value="2">Marketer</option>
-                                            <option value="3">Wordpress </option>
-                                            <option value="4">Designer</option>
->>>>>>> 03f1c7b8136cbc7a9a3a3c078896f4af2ac3755f
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="apply_now d-flex justify-content-end">
-<<<<<<< HEAD
                                         <a href="{% url 'create_post' %}" class="boxed-btn3">작성</a>
-=======
-                                        <a href="{% url 'create_post' %}" class="boxed-btn3">Create Post</a>
->>>>>>> 03f1c7b8136cbc7a9a3a3c078896f4af2ac3755f
                                     </div>
                                 </div>
                             </div>
@@ -188,24 +170,13 @@
                                 <div class="single_jobs white-bg d-flex justify-content-between">
                                     <div class="jobs_left d-flex align-items-center">
                                         <div class="thumb">
-<<<<<<< HEAD
                                             <img src="{% static 'img/svg_icon/6.svg' %}" alt="">
-=======
-                                            <img src="img/svg_icon/1.svg" alt="">
->>>>>>> 03f1c7b8136cbc7a9a3a3c078896f4af2ac3755f
                                         </div>
                                         <div class="jobs_content">
                                             <a href="{% url 'post_detail' post.id %}"><h4>{{ post.title }}</h4></a>
                                             <div class="links_locat d-flex align-items-center">
                                                 <div class="location">
-<<<<<<< HEAD
                                                     <p>{{ post.get_institute_display }}&nbsp;&#124;&nbsp;{{ post.author }}</p>
-=======
-                                                    <p> <i class="fa fa-map-marker"></i> {{ post.get_institute_display }}</p>
-                                                </div>
-                                                <div class="location">
-                                                    <p> <i class="fa fa-clock-o"></i> {{ post.author }}</p>
->>>>>>> 03f1c7b8136cbc7a9a3a3c078896f4af2ac3755f
                                                 </div>
                                             </div>
                                         </div>
@@ -389,52 +360,30 @@
                                 <div class="pagination_wrap">
                                     <ul class="justify-content-center">
                                         {% if posts.has_previous %}
-                                        <li><a class="page-link" data-page="{{ posts.previous_page_number }}" href="javascript:void(0)"> <i class="ti-angle-left"></i> </a></li>
+                                        <li><a class="page-link" href="?page={{ posts.previous_page_number }}"> <i class="ti-angle-left"></i> </a></li>
                                         {% endif %}
                                         {% for page_number in posts.paginator.page_range %}
-                                            {% if page_number >= posts.number|add:-5 and page_number <= posts.number|add:5 %}
-                                            {% if page_number == posts.number %}
-                                            <li><a class="page-link" data-page="{{ page_number }}" href="javascript:void(0)"><span>{{ page_number }}</span></a></li>
-                                            {% else %}
-                                            <li><a class="page-link" data-page="{{ page_number }}" href="javascript:void(0)"><span>{{ page_number }}</span></a></li>
-                                            {% endif %}
+                                            {% if page_number >= posts.number|add:-2 and page_number <= posts.number|add:2 %}
+                                            <li><a class="page-link" href="?page={{ page_number }}"><span>{{ page_number }}</span></a></li>
+                                            {% elif page >= posts.number|add:-3 and page_number <= posts.number|add:3 %}
+                                            <li>..</li>
                                             {% endif %}
                                         {% endfor %}
                                         {% if posts.has_next %}
-                                        <li><a class="page-link" data-page="{{ posts.next_page_number }}" href="javascript:void(0)"> <i class="ti-angle-right"></i> </a></li>
+                                        <li><a class="page-link" href="?page={{ posts.next_page_number }}"> <i class="ti-angle-right"></i> </a></li>
                                         {% endif %}
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
-=======
-                    <script>
-                        $(".page-link").click(function(){
-                            $("input[name='page']").val($(this).data("page"))
-                            $("#searchForm").submit();
-                        });
-                        function searchkw(){
-                            $(document).ready(function(){
-                                $("input[name='type']").val($("select[name=search_type]").val());
-                                $("input[name='kw']").val( $("input[name='search_kw']").val());
-                                $("input[name='institute']").val($("select[name=search_institute]").val());
-                                $("input[name='category']").val($("select[name=search_category]").val());
-                                $("input[name='sort']").val($("select[name=sort_type]").val());
-                                $("input[name='page']").val("1");
-                                $("#searchForm").submit();
-                            });
-                        };
-                    </script>
->>>>>>> 03f1c7b8136cbc7a9a3a3c078896f4af2ac3755f
                     <form id="searchForm" method="get" action="{% url 'index' %}">
                         <input type="hidden" name="type" id="type" value="{{ type }}">
                         <input type="hidden" name="kw" id="kw" value="{{ kw }}">
                         <input type="hidden" name="institute" id="institute" value="{{ institute }}">
                         <input type="hidden" name="category" id="category" value="{{ category }}">
                         <input type="hidden" name="sort" id="sort" value="{{ sort }}">
-                        <input type="hidden" name="page" id="page" value="{{ page }}">
+                        <!--input type="hidden" name="page" id="page" value="{{ page }}"-->
                     </form>
                 </div>
             </div>
