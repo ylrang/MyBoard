@@ -3,7 +3,7 @@ from .views import *
 from .models import Post
 
 from django.views.generic import TemplateView
-
+app_name = 'cloud'
 urlpatterns = [
     path('', index, name='index'),
     path('detail/<int:pk>/', post_detail, name='post_detail'),

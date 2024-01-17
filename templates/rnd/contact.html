@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}  
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>검토 내용 작성</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+    <!-- ================ contact section start ================= -->
+    <section class="contact-section section_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="contact-title">검토 내용 작성</h2>
+                </div>
+                <div class="col-lg-8">
+                    <form class="form-contact contact_form" action="{% url 'rnd:create_case' %}" method="post" id="caseForm" novalidate="novalidate">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="institute">기관</label>
+                                    <select class="form-control" name="institute" id="institute">
+                                        <option data-display="기관">기관</option>
+                                        {% for v, k in form.fields.institute.choices %}
+                                            <option value="{{ v }}" {% if form.fields.institute.value == v %}selected{% endif %}>{{ k }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="PIC">담당자</label>
+                                    <input class="form-control" name="PIC" id="PIC" placeholder = '담당자명'>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="form-label" for="content">피드백 요약</label>
+                                    <textarea class="form-control w-100" name="content" id="content" cols="30" rows="9" placeholder = '내용'></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="form-label" for="inputGroupFile01">첨부파일</label>
+                                    <input class="form-control" type="file" id="inputGroupFile01">   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <button type="submit" class="button button-caseForm btn_4 boxed-btn" name="save">저장</button>
+                                    <button type="submit" class="button button-caseForm btn_4 boxed-btn" name="temp">임시저장</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex justify-content-end">
+                                    <a href="{% url 'rnd:case' %}" class="boxed-btn3">목록</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-4">
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-home"></i></span>
+                        <div class="media-body">
+                        <h3>Buttonwood, California.</h3>
+                        <p>Rosemead, CA 91770</p>
+                        </div>
+                    </div>
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                        <div class="media-body">
+                        <h3>00 (440) 9865 562</h3>
+                        <p>Mon to Fri 9am to 6pm</p>
+                        </div>
+                    </div>
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-email"></i></span>
+                        <div class="media-body">
+                        <h3>support@colorlib.com</h3>
+                        <p>Send us your query anytime!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================ contact section end ================= -->
+    {% endblock %}

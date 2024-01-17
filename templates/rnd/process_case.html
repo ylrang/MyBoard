@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}  
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>contact</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+    <section class="contact-section section_padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 border-bottom">
+                    <h2 class="contact-title">검토 진행 프로세스</h2>
+                </div>
+                <div class="col-lg-10 m-3">
+                    <p>검토 진행 단계 안내</p>
+                </div>
+                <div class="col-lg-10 m-4">
+                    <div class="progres-bar-wrapper"></div>
+                </div>
+                <div class="col-lg-10 m-5">
+                    <div class="apply_now d-flex justify-content-center">
+                        <a href="{% url 'rnd:create_case' %}" class="boxed-btn3">검토작성</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

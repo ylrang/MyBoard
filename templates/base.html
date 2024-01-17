@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{% static 'css/gijgo.css' %}">
     <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
-
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
@@ -42,38 +42,43 @@
                 <div class="container-fluid ">
                     <div class="header_bottom_border">
                         <div class="row align-items-center">
-                            <div class="col-xl-3 col-lg-2">
+                            <div class="col-xl-2 col-lg-2">
                                 <!--div class="logo">
                                     <a href="index.html">
                                         <img src="img/logo.png" alt="">
                                     </a>
                                 </div-->
                             </div>
-                            <div class="col-xl-6 col-lg-7">
+                            <div class="col-xl-8 col-lg-8">
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="index.html">home</a></li>
-                                            <li><a href="jobs.html">Browse Job</a></li>
-                                            <li><a href="#">pages <i class="ti-angle-down"></i></a>
+                                            <li><a href="{% url 'rnd:about' %}"> R&D 지원 프로그램 안내</a></li>
+                                            <li><a href="#">R&D 지원 검토 사례 <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
-                                                    <li><a href="candidate.html">Candidates </a></li>
-                                                    <li><a href="job_details.html">job details </a></li>
-                                                    <li><a href="elements.html">elements</a></li>
+                                                    <li><a href="{% url 'rnd:case' %}">검토 진행사항</a></li>
+                                                    <li><a href="{% url 'rnd:KAERI_cases' %}">KAERI 연구 검토사례</a></li>
+                                                    <li><a href="{% url 'rnd:KOLAD_cases' %}">KOLAD 연구 검토사례</a></li>
+                                                </ul>
+                                            <li><a href="#">심층처분 데이터베이스 <i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                    <li><a href="{% url 'kinsdb:index' %}">데이터베이스 개요</a></li>
+                                                    <li><a href="{% url 'kinsdb:brnc' %}">규제기준 관련</a></li>
+                                                    <li><a href="{% url 'kinsdb:unist' %}">규제사례 관련</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="#">blog <i class="ti-angle-down"></i></a>
+                                            <li><a href="#">규제정보 제공</a></li>
+                                            <li><a href="#">기관 안내 <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
-                                                    <li><a href="blog.html">blog</a></li>
-                                                    <li><a href="single-blog.html">single-blog</a></li>
+                                                    <li><a href="#">검토기관 소개</a></li>
+                                                    <li><a href="#">오시는 길</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="contact.html">Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                            <div class="col-xl-2 col-lg-2 d-none d-lg-block">
                                 <div class="Appointment">
                                     <div class="phone_num d-none d-xl-block">
                                         <a href="#">Log in</a>
@@ -234,8 +239,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="{% static 'js/jquery.form.js' %}"></script>
     <script src="{% static 'js/jquery.validate.min.js' %}"></script>
     <script src="{% static 'js/mail-script.js' %}"></script>
-
-
+    <script src="{% static 'js/progress-bar.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
     <script>
         $( function() {

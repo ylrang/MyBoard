@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>{{ report.case_title.title }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+    
+    <!-- Start Align Area -->
+	<div class="whole-wrap">
+		<div class="container">
+			<div class="section-top-border">
+				<h3 class="mb-30">Background</h3>
+                {% if report.case_title.image %}
+				<img src="{{ report.case_title.image.url }}" alt="" class="img-fluid">
+                {% endif %}
+                {{ report.case_title.background|linebreaks }}
+            </div>
+			<div class="section-top-border">
+				<h3 class="mb-30">적용된 법령 및 규정</h3>
+				{{ report.case_title.regulation|linebreaks }}
+			</div>
+		</div>
+	</div>
+    <div class="job_listing_area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="job_lists">
+                    <div class="row">
+                        {% for issue in report.issues.all %}
+                        <div class="col-lg-12 col-md-12">
+                            <div class="single_jobs white-bg d-flex justify-content-between">
+                                <div class="jobs_left d-flex align-items-center">
+                                    <div class="jobs_conetent">
+                                        <a href="{% url 'kinsdb:issue' issue.id %}"><h4>{{ issue.title }}</h4></a>
+                                        <div class="links_locat d-flex align-items-center">
+                                            <div class="location">
+                                                <p> <i class="fa fa-map-marker"></i>{{ issue.category }}</p>
+                                            </div>
+                                            <div class="location">
+                                                <p> <i class="fa fa-clock-o"></i> Part-time</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="jobs_right">
+                                    <div class="apply_now">
+                                        <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
+                                        <a href="job_details.html" class="boxed-btn3">Apply Now</a>
+                                    </div>
+                                    <div class="date">
+                                        <p>Date line: 31 Jan 2020</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>	
+	<!-- End Align Area -->
+{% endblock %}

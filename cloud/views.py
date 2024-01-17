@@ -94,7 +94,6 @@ def delete_post(request, pk):
     for file in files:
         file.delete()
     return redirect('index')
-    
 
 from django.http import FileResponse
 from django.core.files.storage import FileSystemStorage

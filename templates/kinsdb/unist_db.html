@@ -1,0 +1,279 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load kinsdb_tags %}
+    
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>규제 기준 데이터베이스</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+    <section class="blog_area section-padding">
+        <div class= "container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="unist-table">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th colspan="14">전체 메뉴</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="2"></th>
+                                    {% for v,k in d_choices %}
+                                        <th colspan="2">{{ k }}</th>
+                                    {% endfor %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% regroup unist_list by evaluation as eval_list %}
+                            {% for v, k in e_choices %}
+                                <tr>
+                                {% if v == "3" %}
+                                    <th rowspan="3"></th>
+                                    <th>{{k}}</th>
+                                {% elif v == "4" or v == "5" or v == "7"%}
+                                    <th>{{k}}</th>
+                                {% elif v == "6" %}
+                                    <th rowspan="2"></th>
+                                    <th>{{k}}</th>
+                                {% else %}
+                                    <th colspan="2">{{k}}</th>
+                                {% endif %}
+                                {% for x in eval_list %}
+                                    {% if x.grouper == v %}
+                                        {% regroup x.list by develop as dev_list %}
+                                        {% for i,j in d_choices %}
+                                            {% for y in dev_list %}
+                                                {% if y.grouper == i %}
+                                                    {% regroup y.list by eval1 as eval1_list %}
+                                                    {% for z in eval1_list %}
+                                                        {% regroup z.list by epg as epg_list %}
+                                                        {% for item in epg_choices %}
+                                                            {% if item == "True" %}
+                                                            <td rowspan="{{ z.grouper }}">
+                                                            EPG<br>
+                                                                SITEX-II Project
+                                                                <ul>
+                                                                    {% for w in epg_list %}
+                                                                        {% if w.grouper %}
+                                                                            {% for obj in w.list %}
+                                                                                <li><a href="{% url 'kinsdb:report' obj.id %}">{{obj.title}}</a></li>
+                                                                            {% endfor %}
+                                                                        {% endif %}
+                                                                    {% endfor %}
+                                                                </ul>
+                                                            </td>
+                                                            {% else %}
+                                                            <td rowspan="{{ z.grouper }}">
+                                                                <ul>
+                                                                    {% for w in epg_list %}
+                                                                        {% if not w.grouper %}
+                                                                            {% for obj in w.list %}
+                                                                            <li><a href="{% url 'kinsdb:report' obj.id %}">{{obj.title}}</a></li>
+                                                                            {% endfor %}
+                                                                        {% endif %}
+                                                                    {% endfor %}
+                                                                </ul>
+                                                            </td>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        </td>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endfor %}
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        <!--table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th colspan="2"></th>
+                                    <th colspan="2">개념화 단계</th>
+                                    <th colspan="2">부지조사/선정 단계</th>
+                                    <th colspan="2">기준 설계/인허가 신청단계</th>
+                                    <th colspan="2">건설 단계</th>
+                                    <th colspan="2">운영 단계</th>
+                                    <th colspan="2">폐쇄 단계</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th colspan="2">Safety Context</th>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">안전전략</th>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th rowspan="3">평가 베이시스</th>
+                                    <th>부지 특성</td>
+                                    <td rowspan="3">EPG</td>
+                                    <td></td>
+                                    <td rowspan="3">EPG</td>
+                                    <td></td>
+                                    <td rowspan="3">EPG</td>
+                                    <td></td>
+                                    <td rowspan="3">EPG</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>처분장 설계</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>안전성 평가 방법론</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th rowspan="2">안전성 평가</th>
+                                    <th>운영 중 안정성 평가</th>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>폐쇄 후 안정성 평가</th>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">관리 시스템/이해관계자 및 규제기관 참여</th>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">증거들의 종합</th>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">불확실성 관리</th>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">한계점, 통제 및 조건</th>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td>EPG</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

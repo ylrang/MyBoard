@@ -409,7 +409,7 @@ h3 {
   background: #fff;
   color: #131313;
   display: inline-block;
-  padding: 14px 44px;
+  padding: 14px 30px;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -2646,7 +2646,7 @@ h3 {
   -ms-justify-content: space-between;
   justify-content: space-between;
   -ms-flex-pack: space-between;
-  margin-bottom: 30px;
+  margin-top: 40px;
 }
 
 /* line 11, ../../Arafath/CL/December/235. Job board/HTML/scss/_category.scss */
@@ -2701,6 +2701,10 @@ h3 {
     margin-bottom: 20px;
   }
 }
+.catagory_area .cat_search .single_input .nice-select .list{
+  max-height: 200px;
+  overflow-y: scroll !important;
+}
 
 /* line 43, ../../Arafath/CL/December/235. Job board/HTML/scss/_category.scss */
 .catagory_area .cat_search .single_input .nice-select:focus {
@@ -2712,6 +2716,148 @@ h3 {
   width: 100%;
   display: block !important;
 }
+
+@media (max-width: 767px) {
+  /* line 56, ../../Arafath/CL/December/235. Job board/HTML/scss/_category.scss */
+  .catagory_area .popular_search {
+    display: block !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* line 56, ../../Arafath/CL/December/235. Job board/HTML/scss/_category.scss */
+  .catagory_area .popular_search {
+    display: block !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  /* line 56, ../../Arafath/CL/December/235. Job board/HTML/scss/_category.scss */
+  .catagory_area .popular_search {
+    display: block !important;
+  }
+}
+
+
+/* line 66, ../../Arafath/CL/December/235. Job board/HTML/scss/_category.scss */
+.catagory_area .popular_search span {
+  font-size: 18px;
+  font-weight: 400;
+  color: #001D38;
+  margin-right: 20px;
+}
+
+@media (max-width: 767px) {
+  /* line 66, ../../Arafath/CL/December/235. Job board/HTML/scss/_category.scss */
+  .catagory_area .popular_search span {
+    margin-bottom: 20px;
+    display: block;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* line 66, ../../Arafath/CL/December/235. Job board/HTML/scss/_category.scss */
+  .catagory_area .popular_search span {
+    margin-bottom: 20px;
+    display: block;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  /* line 66, ../../Arafath/CL/December/235. Job board/HTML/scss/_category.scss */
+  .catagory_area .popular_search span {
+    margin-bottom: 20px;
+    display: block;
+  }
+}
+
+/* line 86, ../../Arafath/CL/December/235. Job board/HTML/scss/_category.scss */
+.catagory_area .single_catagory ul li {
+  display: inline-block;
+  margin-right: 7px;
+}
+
+@media (max-width: 767px) {
+  /* line 86, ../../Arafath/CL/December/235. Job board/HTML/scss/_category.scss */
+  .catagory_area .single_catagory ul li {
+    margin-bottom: 15px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* line 86, ../../Arafath/CL/December/235. Job board/HTML/scss/_category.scss */
+  .catagory_area .single_catagory ul li {
+    margin-bottom: 15px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  /* line 86, ../../Arafath/CL/December/235. Job board/HTML/scss/_category.scss */
+  .catagory_area .single_catagory ul li {
+    margin-bottom: 15px;
+  }
+}
+
+/* line 98, ../../Arafath/CL/December/235. Job board/HTML/scss/_category.scss */
+.catagory_area .single_catagory ul li a {
+  color: #0A8CFF;
+  font-size: 14px;
+  font-weight: 400;
+  border: 1px solid #CEE8FF;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 7px 14px;
+}
+
+@media (max-width: 767px) {
+  /* line 98, ../../Arafath/CL/December/235. Job board/HTML/scss/_category.scss */
+  .catagory_area .single_catagory ul li a {
+    font-size: 13px;
+  }
+}
+
+/* line 109, ../../Arafath/CL/December/235. Job board/HTML/scss/_category.scss */
+.catagory_area .single_catagory ul li a:hover {
+  border-color: #0A8CFF;
+}
+.catagory_area .single_catagory ul li a.active {
+  background: #E6F3FF;
+  color: #0A8CFF;
+
+}
+
+
+
+.catagory_area .single_catagory {
+  height: 100%;
+  background: #FFFFFF;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 15px 25px;
+  border: 1px solid #B2F2D0;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  margin-bottom: 10px;
+}
+
+
+.catagory_area .single_catagory h4 {
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+
+
+
 
 @media (max-width: 767px) {
   /* line 56, ../../Arafath/CL/December/235. Job board/HTML/scss/_category.scss */
@@ -2816,6 +2962,7 @@ h3 {
   border-color: #0A8CFF;
 }
 
+
 /* line 1, ../../Arafath/CL/December/235. Job board/HTML/scss/_popular_catagory.scss */
 .popular_catagory_area {
   background: #F5F7FA;
@@ -2836,6 +2983,7 @@ h3 {
   transition: 0.3s;
   margin-bottom: 30px;
 }
+
 
 /* line 12, ../../Arafath/CL/December/235. Job board/HTML/scss/_popular_catagory.scss */
 .popular_catagory_area .single_catagory a h4 {
@@ -4246,11 +4394,10 @@ h3 {
   font-weight: 400;
   color: #AAB1B7;
   line-height: 38px;
-  padding-left: 18px;
   position: relative;
 }
 
-/* line 266, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_details.scss */
+/* line 266, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_details.scss
 .job_details_area .job_sumary .job_content ul li::before {
   position: absolute;
   width: 8px;
@@ -4263,6 +4410,7 @@ h3 {
   content: '';
   top: 16px;
 }
+ */
 
 /* line 277, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_details.scss */
 .job_details_area .job_sumary .job_content ul li span {
@@ -4419,6 +4567,59 @@ h3 {
 .form-contact textarea {
   border-radius: 0px;
   height: 100% !important;
+}
+
+/* line 1045, ../../Arafath/CL/December/235. Job board/HTML/scss/_elements.scss */
+.form-contact .form-group .nice-select {
+  border: 1px solid #e5e6e9;
+  border-radius: 0px;
+  height: 48px;
+  padding-left: 18px;
+  font-size: 13px;
+  background: transparent;
+  width: 100%;
+}
+
+/* line 1053, ../../Arafath/CL/December/235. Job board/HTML/scss/_elements.scss */
+.form-contact .form-group .nice-select .list {
+  margin-top: 0;
+  border-radius: 0px;
+  width: 100%;
+  padding: 10px 0 10px 0px;
+}
+
+/* line 1060, ../../Arafath/CL/December/235. Job board/HTML/scss/_elements.scss */
+.form-contact .form-group .nice-select .list .option {
+  font-weight: 300;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  line-height: 28px;
+  min-height: 28px;
+  font-size: 12px;
+  padding-left: 45px;
+}
+
+/* line 1067, ../../Arafath/CL/December/235. Job board/HTML/scss/_elements.scss */
+.form-contact .form-group .nice-select .list .option.selected {
+  color: #ff5e13;
+}
+
+/* line 1071, ../../Arafath/CL/December/235. Job board/HTML/scss/_elements.scss */
+.form-contact .form-group .nice-select .list .option:hover {
+  color: #ff5e13;
+}
+
+/* line 1078, ../../Arafath/CL/December/235. Job board/HTML/scss/_elements.scss */
+.form-contact .form-group .nice-select .current {
+  margin-right: 50px;
+  font-weight: 300;
+}
+
+/* line 1082, ../../Arafath/CL/December/235. Job board/HTML/scss/_elements.scss */
+.form-contact .form-group .nice-select .nice-select::after {
+  right: 20px;
 }
 
 /*=================== contact form end ====================*/
@@ -6319,7 +6520,7 @@ h6 {
 @media (min-width: 768px) {
   /* line 529, ../../Arafath/CL/December/235. Job board/HTML/scss/_blog.scss */
   .blog_details {
-    padding: 60px 30px 35px 35px;
+    padding: 40px 30px 35px 35px;
   }
 }
 
@@ -6337,6 +6538,9 @@ h6 {
 /* line 545, ../../Arafath/CL/December/235. Job board/HTML/scss/_blog.scss */
 .blog_details a:hover {
   color: #00D363;
+}
+.blog_details .blog_badges {
+  margin-bottom: 10px;
 }
 
 /* line 550, ../../Arafath/CL/December/235. Job board/HTML/scss/_blog.scss */
@@ -6750,6 +6954,13 @@ h6 {
   font-style: italic;
   margin-top: 25px;
   margin-bottom: 25px;
+}
+.case-table {
+  margin-bottom: 50px;
+}
+
+.case-table th {
+  background: rgba(130, 139, 178, 0.1);
 }
 
 @media (min-width: 768px) {
@@ -7475,3 +7686,16 @@ h6 {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+
+.brnc-table {
+  width: 100%;
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+.brnc-table th, .brnc-table td {
+  overflow: hidden;
+  text-align: center;
+  vertical-align: middle;
+}

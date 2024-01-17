@@ -32,8 +32,8 @@
                                         <div class="files">
                                             <p>
                                                 {% for file in post.files.all %}
-                                                <a href = "{% url 'download' file.id %}">
-                                                    {{file.filename}} ({{file.size | filesizeformat}})</br>
+                                                <a href = "{% url 'cloud:download' file.id %}">
+                                                    {{file.filename}} ({{file.size | filesizeformat}})<br>
                                                 </a>
                                                 {% endfor %}
                                             </p>
@@ -43,8 +43,8 @@
                             </div>
                             <div class="jobs_right d-flex justify-content-end">
                                 <div class="apply_now">
-                                    <a href="{% url 'update_post' post.id %}" class="boxed-btn3">수정</a>
-                                    <a href="{% url 'delete_post' post.id %}" class="boxed-btn3">삭제</a>
+                                    <a href="{% url 'cloud:update_post' post.id %}" class="boxed-btn3">수정</a>
+                                    <a href="{% url 'cloud:delete_post' post.id %}" class="boxed-btn3">삭제</a>
                                 </div>
                             </div>
                         </div>

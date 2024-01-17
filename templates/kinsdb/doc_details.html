@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>문서</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <div class="job_details_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="job_details_header">
+                        <div class="single_jobs white-bg d-flex justify-content-between">
+                            <div class="jobs_left d-flex align-items-center">
+                                <div class="thumb">
+                                    <img src="{% static 'img/svg_icon/6.svg' %}" alt="">
+                                </div>
+                                <div class="jobs_conetent">
+                                    <a href="#"><h4>{{ document.get_title }}</h4></a>
+                                    <div class="links_locat d-flex align-items-center">
+                                        <div class="files">
+                                            <p>
+                                                <a href ="{% url 'kinsdb:download' document.brnc.id %}">
+                                                    {{ document.brnc.get_filename }}<br>
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="jobs_right">
+                                <div class="apply_now">
+                                    <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="descript_wrap white-bg">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="single_wrap">
+                                    <h4>{{ document.get_index_title }}</h4>
+                                    <p>{{ document.index_content }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="single_wrap">
+                                    <h4>{{ document.get_index_title_kr }}</h4>
+                                    <p>{{ document.index_content_kr }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="job_sumary">
+                        <div class="summery_header">
+                            <h3>{{ document.brnc.title }}</h3>
+                        </div>
+                        <div class="job_content">
+                            <ul>
+                                <li>문서번호: <span>{{ document.brnc.doc_id }}</span></li>
+                                <li>기관/국가: <span>{{ document.institute }}</span></li>
+                                <li>작성자: <span>admin</span></li>
+                                <li>조회: <span>0</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="share_wrap d-flex">
+                        <span>Share at:</span>
+                        <ul>
+                            <li><a href="#"> <i class="fa fa-facebook"></i></a> </li>
+                            <li><a href="#"> <i class="fa fa-google-plus"></i></a> </li>
+                            <li><a href="#"> <i class="fa fa-twitter"></i></a> </li>
+                            <li><a href="#"> <i class="fa fa-envelope"></i></a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

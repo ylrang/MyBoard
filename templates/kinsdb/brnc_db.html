@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load kinsdb_tags %}
+    
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>규제 기준 데이터베이스</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <section class="blog_area section-padding">
+        <div class= "container-fluid">
+            <div class="row">
+                <div class="col-lg-12 mb-4">
+                    <div class="d-flex justify-content-end">
+                        <div class="apply_now">
+                            <a href="{% url 'kinsdb:regulation_database' %}" class="boxed-btn3">Database 접속</a>
+                            <a href="#" class="boxed-btn3">Data 업로드</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <ul class="nav nav-pills nav-justified" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#all">법령체계</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#kor">국내</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#usa">미국</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#swd">스웨덴</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#fin">핀란드</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#fra">프랑스</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#ger">독일</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#can">캐나다</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#jap">일본</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#swi">스위스</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="all" role="tabpanel">
+                            <table class="table table-bordered brnc-table">
+                            {% sort_data brnc_list as brnc_data %}
+                            {% regroup brnc_data by system as system_data %}
+                            {% for system in system_data %}
+                                <tr>
+                                    <th>{{ system.grouper }}</th>
+                                    {% for object_list in system.list %}
+                                    <td>
+                                        <ul>
+                                        {% for obj in object_list.objects %}
+                                            <li>{{ obj.doc_id }}<br>{{ obj.title }}</li>
+                                        {% endfor %}
+                                        </ul>
+                                    </td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="kor" role="tabpanel">
+                            <div class="section-top-border">
+                                <h3 class="mb-30">국내 원자력 관련 법령 체계도</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img src="{% static 'img/elements/d.jpg' %}" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="col-md-6 mt-sm-20">
+                                        <ul>
+                                            <li>국내는 원자력 및 방사선 이용의 안전을 위한 국내 원자력안전법령은 원자력이용시설의 유형별로 허가의 절차 및 기준과 운영상의 규제요건들을 열거하고 있다.</li>
+                                            <li>심층처분시설에 대해서는 원자력안전위원회 규칙 제31호 ‘방사선안전관리등의 기술기준에 관한 규칙’과 원자력안전위원회 고시 ‘고준위방사성폐기물 심층처분시설에 관한 일반기준’ 등의 행정규칙 수준의 기술기준을 제시하고 있다.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h3 class="mb-30">Table</h3>
+                                        <div class="requirement-table">
+                                            <table class="">
+                                                <thead>
+                                                    <tr>
+                                                        <th>분류</th>
+                                                        <th>명칭</th>
+                                                        <th>주요내용</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <th>법령</th>
+                                                    <tr>원자력안전법</tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h3 class="mb-20">Unordered List</h3>
+                                        <ul class="unordered-list">
+                                            <li>`16년, 제1차 고준위방사성폐기물 관리 기본계획 수립</li>
+                                            <li>`21년, 제2차 고준위방사성폐기물 관리 기본계획(안) 수립</li>
+                                            <li>부지선정절차 착수 후, 37년 내 심층처분시설을 확보하는 것을 목표로 하고 있음
+                                                <ul>
+                                                    <li>(Y) 부지선정절차 착수</li>
+                                                    <li>(Y+13) 관리시설 부지확보</li>
+                                                    <li>(Y+20) 중간저장시설 확보</li>
+                                                    <li>(Y+37) 심층처분시설 확보</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -21,6 +21,8 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('cloud.urls')),
+    path('', include('rnd.urls')),
+    path('cloud/', include('cloud.urls')),
+    path('kinsdb/', include('kinsdb.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

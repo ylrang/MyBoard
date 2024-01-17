@@ -41,9 +41,6 @@ class Post(models.Model):
         return reverse('post_detail', kwargs={'pk': self.pk})
 
 
-
-
-
 def get_file_path(instance, filename):
     return 'user_{}/{}'.format(instance.id, filename)
 

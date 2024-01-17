@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>문서</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <div class="job_details_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="job_details_header">
+                        <div class="single_jobs white-bg d-flex justify-content-between">
+                            <div class="jobs_left d-flex align-items-center">
+                                <div class="thumb">
+                                    <img src="{% static 'img/svg_icon/6.svg' %}" alt="">
+                                </div>
+                                <div class="jobs_conetent">
+                                    <a href="#"><h4>{{ issue.title }}</h4></a>
+                                    {% if issue.report.file %}
+                                    <div class="links_locat d-flex align-items-center">
+                                        <div class="files">
+                                            <p>
+                                                <a href ="{% url 'kinsdb:download' document.brnc.id %}">
+                                                    {{ issue.report.get_filename }}<br>
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="jobs_right">
+                                <div class="apply_now">
+                                    <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job_details_header">
+                        <div class="single_jobs white-bg d-flex justify-content-between">
+                            <div class="col-md-12">
+                                <div class="single_wrap">
+                                    <h4>적용된 규제조건</h4>
+                                    <p>{{ issue.report.case_title.regulation|linebreaks }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="descript_wrap white-bg">
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <div class="single_wrap">
+                                    <h4>Summary</h4>
+                                    <p>{{ issue.summary|linebreaks }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="single_wrap">
+                                    <h4>{{ issue.report.institute }}에 제안해야 하는 보충 정보</h4>
+                                    <p>{{ issue.proposal|linebreaks }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="job_sumary">
+                        <div class="summery_header">
+                            <h3>{{ issue.report.title }}</h3>
+                        </div>
+                        <div class="job_content">
+                            <ul>
+                                <li>검토 보고서: <span>{{ issue.report.report_title }}</span></li>
+                                <li>기관/국가: <span>{{ issue.report.institute }}</span></li>
+                            </ul>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>검토한 보고서</th>
+                                        <th>검토된 Section</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for related in issue.report.related_report.all %}
+                                    <tr>
+                                        <td>{{ related.report_reviewed }}</td>
+                                        <td>{{ related.section_reviewed }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="share_wrap d-flex">
+                        <span>Share at:</span>
+                        <ul>
+                            <li><a href="#"> <i class="fa fa-facebook"></i></a> </li>
+                            <li><a href="#"> <i class="fa fa-google-plus"></i></a> </li>
+                            <li><a href="#"> <i class="fa fa-twitter"></i></a> </li>
+                            <li><a href="#"> <i class="fa fa-envelope"></i></a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

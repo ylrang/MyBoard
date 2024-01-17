@@ -4,13 +4,9 @@
 __pycache__/
 db.sqlite3
 .DS_Store
-media
+media/
 venv/
 .vscode/
 .env
-<<<<<<< HEAD
 my_settings.py
 staticfiles/
-=======
-my_settings.py
->>>>>>> 03f1c7b8136cbc7a9a3a3c078896f4af2ac3755f

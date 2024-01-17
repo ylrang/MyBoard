@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>규제 기준 데이터베이스</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <!-- job_searcing_wrap  -->
+    <!--section class="job_searcing_area section-padding"></section-->
+        <div class="job_searcing_wrap overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 offset-lg-1 col-md-6">
+                        <div class="searching_text">
+                            <h3>규제기준</h3>
+                            <p>법령 체계 및 규제 관련 법안</p>
+                            <a href="{% url 'kinsdb:brnc' %}" class="boxed-btn3">Browse Job</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 offset-lg-1 col-md-6">
+                        <div class="searching_text">
+                            <h3>규제사례</h3>
+                            <p>안전규제 사례 검토별 이슈</p>
+                            <a href="{% url 'kinsdb:report' pk=1 %}" class="boxed-btn3">Post a Job</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- job_searcing_wrap end  -->
+{% endblock %}
