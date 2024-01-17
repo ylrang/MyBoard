@@ -10,5 +10,5 @@ urlpatterns = [
     path('unist/', unist, name='unist'),
     path('report<int:pk>/', report_details, name='report'),
     path('issue<int:pk>/', issue_details, name='issue'),
-    path('download/<int:pk>/', download_file, name='download'),
+    path('download/<int:pk>/<str:type>/', download_file, name='download'),
 ]

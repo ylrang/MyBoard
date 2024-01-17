@@ -3,6 +3,7 @@ from django.views.generic import TemplateView
 from .models import *
 from django.http import FileResponse
 from django.core.files.storage import FileSystemStorage
+from urllib.parse import quote
 
 # Create your views here.
 class index(TemplateView):
@@ -59,7 +60,7 @@ def report_details(request, pk):
 def issue_details(request, pk):
     issue = Issue.objects.get(pk=pk)
     return render(request, 'kinsdb/issue_details.html', {'issue': issue})
-
+"""
 def download_file(request, pk):
     object = BRNC.objects.get(pk=pk)
     file_path = object.file.path
@@ -68,4 +69,16 @@ def download_file(request, pk):
     response = FileResponse(fs.open(file_path, 'rb'), content_type='application/vnd.hancom.hwp')
     response['Content-Disposition'] = f'attachment; filename={file_name}'
     
+    return response
+"""
+def download_file(request, pk, type):
+    if type == 'b':
+        obj = BRNC.objects.get(pk=pk)
+    elif type == 'u':
+        obj = Report.objects.get(pk=pk)
+    file_path = obj.file.path
+    file_name = obj.get_filename()
+    fs = FileSystemStorage(file_path)
+    response = FileResponse(fs.open(file_path, 'rb'), content_type='application/octet-stream')
+    response['Content-Disposition'] = "attachment; filename*=UTF-8''{}".format(quote(file_name.encode('utf-8')))
     return response
