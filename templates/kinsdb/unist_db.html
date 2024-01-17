@@ -29,7 +29,7 @@
                                 <tr>
                                     <th colspan="2"></th>
                                     {% for v,k in d_choices %}
-                                        <th colspan="2">{{ k }}</th>
+                                    <th colspan="2">{{ k }}</th>
                                     {% endfor %}
                                 </tr>
                             </thead>
@@ -37,62 +37,61 @@
                             {% regroup unist_list by evaluation as eval_list %}
                             {% for v, k in e_choices %}
                                 <tr>
-                                {% if v == "3" %}
-                                    <th rowspan="3"></th>
-                                    <th>{{k}}</th>
-                                {% elif v == "4" or v == "5" or v == "7"%}
-                                    <th>{{k}}</th>
-                                {% elif v == "6" %}
-                                    <th rowspan="2"></th>
-                                    <th>{{k}}</th>
-                                {% else %}
-                                    <th colspan="2">{{k}}</th>
-                                {% endif %}
-                                {% for x in eval_list %}
-                                    {% if x.grouper == v %}
-                                        {% regroup x.list by develop as dev_list %}
-                                        {% for i,j in d_choices %}
-                                            {% for y in dev_list %}
-                                                {% if y.grouper == i %}
-                                                    {% regroup y.list by eval1 as eval1_list %}
-                                                    {% for z in eval1_list %}
-                                                        {% regroup z.list by epg as epg_list %}
-                                                        {% for item in epg_choices %}
-                                                            {% if item == "True" %}
-                                                            <td rowspan="{{ z.grouper }}">
-                                                            EPG<br>
-                                                                SITEX-II Project
-                                                                <ul>
-                                                                    {% for w in epg_list %}
-                                                                        {% if w.grouper %}
-                                                                            {% for obj in w.list %}
-                                                                                <li><a href="{% url 'kinsdb:report' obj.id %}">{{obj.title}}</a></li>
-                                                                            {% endfor %}
-                                                                        {% endif %}
-                                                                    {% endfor %}
-                                                                </ul>
-                                                            </td>
-                                                            {% else %}
-                                                            <td rowspan="{{ z.grouper }}">
-                                                                <ul>
-                                                                    {% for w in epg_list %}
-                                                                        {% if not w.grouper %}
-                                                                            {% for obj in w.list %}
-                                                                            <li><a href="{% url 'kinsdb:report' obj.id %}">{{obj.title}}</a></li>
-                                                                            {% endfor %}
-                                                                        {% endif %}
-                                                                    {% endfor %}
-                                                                </ul>
-                                                            </td>
-                                                            {% endif %}
-                                                        {% endfor %}
-                                                        </td>
-                                                    {% endfor %}
-                                                {% endif %}
-                                            {% endfor %}
-                                        {% endfor %}
+                                    {% if v == "3" %}
+                                        <th rowspan="3"></th>
+                                        <th>{{k}}</th>
+                                    {% elif v == "4" or v == "5" or v == "7"%}
+                                        <th>{{k}}</th>
+                                    {% elif v == "6" %}
+                                        <th rowspan="2"></th>
+                                        <th>{{k}}</th>
+                                    {% else %}
+                                        <th colspan="2">{{k}}</th>
                                     {% endif %}
-                                {% endfor %}
+                                    {% for x in eval_list %}
+                                        {% if x.grouper == v %}
+                                            {% regroup x.list by develop as dev_list %}
+                                            {% for i,j in d_choices %}
+                                                {% for y in dev_list %}
+                                                    {% if y.grouper == i %}
+                                                        {% regroup y.list by eval1 as eval1_list %}
+                                                        {% for z in eval1_list %}
+                                                            {% regroup z.list by epg as epg_list %}
+                                                            {% for item in epg_choices %}
+                                                                {% if item == "True" %}
+                                                                    <td rowspan="{{ z.grouper }}">
+                                                                        EPG<br>
+                                                                        SITEX-II Project
+                                                                        <ul>
+                                                                        {% for w in epg_list %}
+                                                                            {% if w.grouper %}
+                                                                                {% for obj in w.list %}
+                                                                                    <li><a href="{% url 'kinsdb:report' obj.id %}">{{obj.title}}</a></li>
+                                                                                {% endfor %}
+                                                                            {% endif %}
+                                                                        {% endfor %}
+                                                                        </ul>
+                                                                    </td>
+                                                                {% else %}
+                                                                    <td rowspan="{{ z.grouper }}">
+                                                                        <ul>
+                                                                        {% for w in epg_list %}
+                                                                            {% if not w.grouper %}
+                                                                                {% for obj in w.list %}
+                                                                                    <li><a href="{% url 'kinsdb:report' obj.id %}">{{obj.title}}</a></li>
+                                                                                {% endfor %}
+                                                                            {% endif %}
+                                                                        {% endfor %}
+                                                                        </ul>
+                                                                    </td>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
                                 </tr>
                             {% endfor %}
                             </tbody>
