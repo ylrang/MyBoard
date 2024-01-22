@@ -8,5 +8,4 @@ media/
 venv/
 .vscode/
 .env
-my_settings.py
 staticfiles/
