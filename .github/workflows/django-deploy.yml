@@ -1,0 +1,27 @@
+name: Deployment
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: deploy
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: SSH Connection
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PEM }}
+        port : 22
+        script: |
+          cd /home/nctest/projects/MyBoard
+          git pull
+          sudo systemctl daemon-reload
+          sudo systemctl restart uwsgi
+          sudo systemctl restart uwsgi.service
+          sudo nginx -t
+          sudo systemctl restart nginx
