@@ -1,8 +1,6 @@
 name: Deployment
 
-on:
-  push:
-    branches: [ "main" ]
+on: [push]
 
 jobs:
   build:
@@ -19,5 +17,9 @@ jobs:
         port : 22
         script: |
           cd /home/nctest/projects/MyBoard
+          workon venv
           git pull
+          python manage.py migrate
+          python manage.py collectstatics --no-input
           sudo systemctl restart uwsgi
+          echo "successfully updated"
