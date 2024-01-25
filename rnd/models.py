@@ -14,7 +14,7 @@ class Case(models.Model):
     )
     content = models.TextField(blank=True)
     file = models.FileField(upload_to='rnd/', null=True, blank=True)
-    PIC = models.CharField(max_length=100)
+    PIC = models.CharField(default='홍길동', max_length=100)
     created = models.DateTimeField(default=timezone.now)
     published = models.DateTimeField(blank=True, null=True)
     updated = models.DateTimeField(blank=True, null=True)
