@@ -17,23 +17,21 @@ jobs:
         port : 22
         script: |
           cd /home/nctest/projects/MyBoard
-
-          git pull
-          echo "New changes copied to server"
-
-          source ~/.virtualenvs/venv/bin/activate
-          echo "Virtual environment 'venv' activated"
           
-          echo "Installing required packages"
+          git pull
+          
+          # venv actiavation
+          source ~/.virtualenvs/venv/bin/activate
+          
+          # Install requirements
           pip install -r requirements.txt
-
-          echo "Gathering static files"
+          
+          # Gather static files
           python manage.py collectstatic --no-input
-
-          echo "Running database migration"
+          
+          # Run database migration
           python manage.py makemigrations
           python manage.py migrate
           
-
-          "Restarting application"
+          # Restart application
           sudo systemctl restart uwsgi
