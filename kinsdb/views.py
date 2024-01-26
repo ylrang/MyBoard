@@ -60,17 +60,7 @@ def report_details(request, pk):
 def issue_details(request, pk):
     issue = Issue.objects.get(pk=pk)
     return render(request, 'kinsdb/issue_details.html', {'issue': issue})
-"""
-def download_file(request, pk):
-    object = BRNC.objects.get(pk=pk)
-    file_path = object.file.path
-    file_name = object.get_filename()
-    fs = FileSystemStorage(file_path)
-    response = FileResponse(fs.open(file_path, 'rb'), content_type='application/vnd.hancom.hwp')
-    response['Content-Disposition'] = f'attachment; filename={file_name}'
-    
-    return response
-"""
+
 def download_file(request, pk, type):
     if type == 'b':
         obj = BRNC.objects.get(pk=pk)

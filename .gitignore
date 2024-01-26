@@ -8,5 +8,7 @@ media/
 venv/
 .vscode/
 .env
-my_settings.py
 staticfiles/
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
