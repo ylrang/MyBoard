@@ -21,9 +21,6 @@ class BRNC(models.Model):
     def get_filename(self):
         return os.path.basename(self.file.name)
     
-    def get_content_type(self):
-        return self.get_filename().split('.')[-1]
-        
 
 class Document(models.Model):
     brnc = models.ForeignKey(BRNC, on_delete=models.CASCADE, related_name='regulation_doc')
