@@ -16,22 +16,10 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         port : 22
         script: |
-          cd /home/nctest/projects/MyBoard
-          
+          cd /home/nctest/projects/MyBoard 
           git pull
-          
-          # venv actiavation
           source ~/.virtualenvs/venv/bin/activate
-          
-          # Install requirements
           pip install -r requirements.txt
-          
-          # Gather static files
           python manage.py collectstatic --no-input
-          
-          # Run database migration
-          python manage.py makemigrations
           python manage.py migrate
-          
-          # Restart application
           sudo systemctl restart uwsgi
