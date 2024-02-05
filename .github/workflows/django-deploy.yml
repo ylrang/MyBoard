@@ -17,9 +17,15 @@ jobs:
         port : 22
         script: |
           cd /home/nctest/projects/MyBoard 
+
           git pull
+          
           source ~/.virtualenvs/venv/bin/activate
+          
           pip install -r requirements.txt
+
           python manage.py collectstatic --no-input
+          python manage.py makemigrations
           python manage.py migrate
+
           sudo systemctl restart uwsgi
