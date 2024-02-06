@@ -27,3 +27,8 @@ class Case(models.Model):
     
     def __str__(self):
         return self.title
+
+class Comment(models.Model):
+    case = models.ForeignKey(Case, on_delete=models.CASCADE)
+    content = models.TextField()
+    created = models.DateTimeField(default=timezone.now)

@@ -59,8 +59,8 @@ def KOLAD_cases(request):
 
 def case_detail(request, pk):
     case = Case.objects.get(pk=pk)
-    #comments = Comment.objects.filter(case=case)
-    return render(request, 'rnd/single-blog.html', {'case': case})
+    comments = Comment.objects.filter(case=case)
+    return render(request, 'rnd/single-blog.html', {'case': case, 'comments': comments})
 
 def download_file(request, pk):
     case = Case.objects.get(pk=pk)
